@@ -1,8 +1,0 @@
-sample,file,index
-HG001_01X,/projects/dog/llenezet/data/truth/HG001_01X.vcf.gz,/projects/dog/llenezet/data/truth/HG001_01X.vcf.gz.tbi
-HG001_02X,/projects/dog/llenezet/data/truth/HG001_02X.vcf.gz,/projects/dog/llenezet/data/truth/HG001_02X.vcf.gz.tbi
-HG001_05X,/projects/dog/llenezet/data/truth/HG001_05X.vcf.gz,/projects/dog/llenezet/data/truth/HG001_05X.vcf.gz.tbi
-HG001_1X,/projects/dog/llenezet/data/truth/HG001_1X.vcf.gz,/projects/dog/llenezet/data/truth/HG001_1X.vcf.gz.tbi
-HG001_2X,/projects/dog/llenezet/data/truth/HG001_2X.vcf.gz,/projects/dog/llenezet/data/truth/HG001_2X.vcf.gz.tbi
-HG001_4X,/projects/dog/llenezet/data/truth/HG001_4X.vcf.gz,/projects/dog/llenezet/data/truth/HG001_4X.vcf.gz.tbi
-HG001_8X,/projects/dog/llenezet/data/truth/HG001_8X.vcf.gz,/projects/dog/llenezet/data/truth/HG001_8X.vcf.gz.tbi

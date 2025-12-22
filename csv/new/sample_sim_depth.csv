@@ -1,8 +1,0 @@
-sample,file,index
-HG001_01X,/projects/dog/llenezet/script/benchmark/results_simulate_0.1/simulation/samples/HG001.depth_0.1x.bam,/projects/dog/llenezet/script/benchmark/results_simulate_0.1/simulation/samples/HG001.depth_0.1x.bam.csi
-HG001_02X,/projects/dog/llenezet/script/benchmark/results_simulate_0.2/simulation/samples/HG001.depth_0.2x.bam,/projects/dog/llenezet/script/benchmark/results_simulate_0.2/simulation/samples/HG001.depth_0.2x.bam.csi
-HG001_05X,/projects/dog/llenezet/script/benchmark/results_simulate_0.5/simulation/samples/HG001.depth_0.5x.bam,/projects/dog/llenezet/script/benchmark/results_simulate_0.5/simulation/samples/HG001.depth_0.5x.bam.csi
-HG001_1X,/projects/dog/llenezet/script/benchmark/results_simulate_1/simulation/samples/HG001.depth_1x.bam,/projects/dog/llenezet/script/benchmark/results_simulate_1/simulation/samples/HG001.depth_1x.bam.csi
-HG001_2X,/projects/dog/llenezet/script/benchmark/results_simulate_2/simulation/samples/HG001.depth_2x.bam,/projects/dog/llenezet/script/benchmark/results_simulate_2/simulation/samples/HG001.depth_2x.bam.csi
-HG001_4X,/projects/dog/llenezet/script/benchmark/results_simulate_4/simulation/samples/HG001.depth_4x.bam,/projects/dog/llenezet/script/benchmark/results_simulate_4/simulation/samples/HG001.depth_4x.bam.csi
-HG001_8X,/projects/dog/llenezet/script/benchmark/results_simulate_8/simulation/samples/HG001.depth_8x.bam,/projects/dog/llenezet/script/benchmark/results_simulate_8/simulation/samples/HG001.depth_8x.bam.csi

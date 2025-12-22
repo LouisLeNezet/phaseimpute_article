@@ -11,8 +11,7 @@
 OUTPUT_DATA=$1
 OUTPUT_DATA="/projects/dog/llenezet/data"
 MAIN_NF="nf-core/phaseimpute -r 1.0.0"
-MAIN_NF="/projects/dog/llenezet/script/phaseimpute/main.nf"
-OUTDIR_PATH="/projects/dog/llenezet/script/benchmark"
+OUTDIR_PATH="output"
 
 conda activate env_nf
 
