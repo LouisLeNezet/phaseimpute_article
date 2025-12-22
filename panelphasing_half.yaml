@@ -1,0 +1,6 @@
+fasta        : "/projects/dog/llenezet/data/genome/genome.fa"
+panel        : "csv/new/panel_unphased_half.csv"
+steps        : "panelprep"
+normalize    : false
+compute_freq : false
+phase        : true

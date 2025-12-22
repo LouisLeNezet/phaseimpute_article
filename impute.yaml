@@ -1,0 +1,7 @@
+fasta        : "/projects/dog/llenezet/data/genome/genome.fa"
+panel        : "/projects/dog/llenezet/script/benchmark/results_panelprep/prep_panel/csv/panel.csv"
+chunks       : "/projects/dog/llenezet/script/benchmark/results_panelprep/prep_panel/csv/chunks_glimpse1.csv"
+posfile      : "/projects/dog/llenezet/script/benchmark/results_panelprep/prep_panel/csv/posfile.csv"
+steps        : "impute"
+tools        : "glimpse1,glimpse2,quilt"
+input        : "/projects/dog/llenezet/script/benchmark/csv/new/sample_sim_depth.csv"

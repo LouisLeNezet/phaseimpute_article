@@ -1,0 +1,7 @@
+fasta          : "/projects/dog/llenezet/data/genome/genome.fa"
+panel          : "csv/new/panel_full.csv"
+steps          : "panelprep"
+normalize      : true
+compute_freq   : false
+phase          : false
+remove_samples : "NA12878,NA12891,NA12892"

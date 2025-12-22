@@ -1,0 +1,4 @@
+fasta        : "/projects/dog/llenezet/data/genome/genome.fa"
+fasta_fai    : "/projects/dog/llenezet/data/genome/genome.fa.fai"
+input        : "/projects/dog/llenezet/script/benchmark/csv/new/sample_sim_full.csv"
+steps        : "simulate"

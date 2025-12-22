@@ -1,0 +1,8 @@
+fasta        : "/projects/dog/llenezet/data/genome/genome.fa"
+fasta_fai    : "/projects/dog/llenezet/data/genome/genome.fa.fai"
+input        : "/projects/dog/llenezet/script/benchmark/results_impute/imputation/csv/impute.csv"
+input_truth  : "/projects/dog/llenezet/script/benchmark/csv/new/sample_sim_truth_depth.csv"
+posfile      : "/projects/dog/llenezet/script/benchmark/results_panelprep/prep_panel/csv/posfile.csv"
+steps        : "validate"
+min_val_gl   : null
+min_val_dp   : null

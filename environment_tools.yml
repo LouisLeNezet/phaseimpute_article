@@ -1,0 +1,15 @@
+name: env_benchmark
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+dependencies:
+  - bioconda::whatshap
+  - conda-forge::numpy
+  - conda-forge::matplotlib
+  - bioconda::bcftools
+  - bioconda::nextflow=24.10
+  - bioconda::nf-core=3.2.0
+  - conda-forge::r-base=4.4
+  - conda-forge::r-ggplot2
+  - conda-forge::r-data.table
