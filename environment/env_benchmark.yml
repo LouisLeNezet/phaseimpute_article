@@ -8,8 +8,8 @@ dependencies:
   - conda-forge::numpy
   - conda-forge::matplotlib
   - bioconda::bcftools
-  - bioconda::nextflow=24.10
-  - bioconda::nf-core=3.2.0
+  - bioconda::nextflow=25.10.4
+  - bioconda::nf-core=4.0.2
   - conda-forge::r-base=4.4
   - conda-forge::r-ggplot2
   - conda-forge::r-data.table
