@@ -1,9 +1,0 @@
-name: env_aws_download
-channels:
-  - conda-forge
-  - defaults
-dependencies:
-  - python>=3.8
-  - awscli
-  - s3cmd
-  - pip

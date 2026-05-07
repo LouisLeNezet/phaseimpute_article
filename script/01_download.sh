@@ -5,10 +5,7 @@
 #SBATCH --cpus-per-task=2
 #SBATCH --mem=10G
 
-. /local/env/envconda.sh
-conda activate aws-genome-download
-
-OUTPUT_DATA="input/data"
+OUTPUT_DATA="$PWD/input/data"
 
 # Define the function to download files and rewrite the CSV
 process_csv() {
@@ -57,6 +54,5 @@ process_csv "$OUTPUT_DATA/HG001/truth" "input/csv/to_download/sample_sim_full_tr
 process_csv "$OUTPUT_DATA/HG001/raw" "input/csv/to_download/sample_sim_full.csv" "input/csv/new/sample_sim_full.csv" 2 3 ""
 
 # Download the reference genome and unzip it
-aws s3 --no-sign-request --region eu-west-1 sync \
-    s3://ngi-igenomes/igenomes/Homo_sapiens/NCBI/GRCh38/Sequence/WholeGenomeFasta/\
-    "$OUTPUT_DATA/genome/"
+wget ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/GRCh38_reference_genome/GRCh38_full_analysis_set_plus_decoy_hla.fa -P $OUTPUT_DATA/genome/
+wget ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/GRCh38_reference_genome/GRCh38_full_analysis_set_plus_decoy_hla.fa.fai -P $OUTPUT_DATA/genome/
