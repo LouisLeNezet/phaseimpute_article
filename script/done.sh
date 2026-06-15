@@ -6,46 +6,48 @@
 #SBATCH --cpus-per-task=12
 #SBATCH --mem=80G
 
-. /local/env/envconda.sh
+INPUT_FD="$PWD/input"
+INPUT_DATA="$INPUT_FD/data"
+INPUT_CONFIG="$INPUT_FD/config"
+INPUT_CSV="$INPUT_FD/csv"
 
-OUTPUT_DATA=$1
-OUTPUT_DATA="/projects/dog/llenezet/data"
-MAIN_NF="nf-core/phaseimpute -r 1.0.0"
-OUTDIR_PATH="output"
+MAIN_NF="nf-core/phaseimpute -r dev"
+MAIN_NF="/home/llenezet/working_directory/phaseimpute/main.nf"
+OUTDIR_PATH="$PWD/output"
 
-conda activate env_nf
+conda activate env_benchmark
 
 if [ 1 -eq 1 ]; then
     echo  "Running for panelpreparation benchmarking"
-    mkdir -p results_panelprep
-    nextflow -log results_panelprep/phaseimpute.log run $MAIN_NF \
+    mkdir -p $OUTDIR_PATH/results_panelprep
+    nextflow -log $OUTDIR_PATH/results_panelprep/phaseimpute.log run $MAIN_NF \
         -profile singularity \
         -ansi-log false \
         --outdir $OUTDIR_PATH/results_panelprep \
         -resume \
-        -params-file /projects/dog/llenezet/script/benchmark/panelprep.yaml \
-        -c /projects/dog/llenezet/script/benchmark/benchmarking.config
+        -params-file $INPUT_CONFIG/panelprep.yaml \
+        -c $INPUT_CONFIG/benchmarking.config
 fi
 
 if [ 1 -eq 1 ]; then
     echo  "Running for simulate benchmarking"
     for depth in 0.1 0.2 0.5 1 2 4 8; do
-        mkdir -p results_simulate_$depth
-        nextflow -log results_simulate_$depth/simulate.log run $MAIN_NF \
+        mkdir -p $OUTDIR_PATH/results_simulate_$depth
+        nextflow -log $OUTDIR_PATH/results_simulate_$depth/simulate.log run $MAIN_NF \
             -profile singularity \
             -ansi-log false \
             --outdir $OUTDIR_PATH/results_simulate_$depth \
             -resume \
-            -params-file /projects/dog/llenezet/script/benchmark/simulate.yaml \
-            -c /projects/dog/llenezet/script/benchmark/benchmarking.config \
-            --depth $depth
+            -params-file $INPUT_CONFIG/simulate.yaml \
+            -c $INPUT_CONFIG/benchmarking.config \
+            --depth $depth | tee pipeline_run.log
     done
-    input_csv=csv/new/sample_sim_depth.csv
+    input_csv="$INPUT_CSV/new/sample_sim_depth.csv"
     echo "sample,file,index" > $input_csv
 
     # Concatenate all simulate data into one csv
     for depth in 0.1 0.2 0.5 1 2 4 8; do
-        file="results_simulate_$depth/simulation/csv/simulate.csv"
+        file="$OUTDIR_PATH/results_simulate_$depth/simulation/csv/simulate.csv"
         depth=$(echo $depth | sed 's/\.//')
         awk -F',' -v OFS=',' -v depth=$depth 'NR>1{print $1"_"depth"X",$2,$3}' $file >> $input_csv
     done
@@ -53,14 +55,14 @@ fi
 
 if [ 1 -eq 1 ]; then
     echo  "Running for imputation benchmarking"
-    mkdir -p results_impute
-    nextflow -log results_impute/phaseimpute.log run $MAIN_NF \
+    mkdir -p $OUTDIR_PATH/results_impute
+    nextflow -log $OUTDIR_PATH/results_impute/phaseimpute.log run $MAIN_NF \
         -profile singularity \
         -ansi-log false \
         --outdir $OUTDIR_PATH/results_impute \
         -resume \
-        -params-file /projects/dog/llenezet/script/benchmark/impute.yaml \
-        -c /projects/dog/llenezet/script/benchmark/benchmarking.config
+        -params-file $INPUT_CONFIG/impute.yaml \
+        -c $INPUT_CONFIG/benchmarking.config | tee pipeline_run.log
 fi
 
 if [ 1 -eq 1 ]; then

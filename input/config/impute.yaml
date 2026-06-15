@@ -4,4 +4,4 @@ chunks       : "/home/llenezet/working_directory/phaseimpute_article/output/resu
 posfile      : "/home/llenezet/working_directory/phaseimpute_article/output/results_panelprep/prep_panel/csv/posfile.csv"
 steps        : "impute"
 tools        : "glimpse1,glimpse2,quilt"
-input        : "/home/llenezet/working_directory/phaseimpute_article/input/data/csv/new/sample_sim_depth.csv"
+input        : "/home/llenezet/working_directory/phaseimpute_article/input/csv/new/sample_sim_depth.csv"

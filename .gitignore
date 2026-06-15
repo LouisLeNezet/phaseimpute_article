@@ -3,6 +3,6 @@ results_*
 article/test_vcf
 input/csv/new
 input/data/
-
+work/
 *.err
 *.out
