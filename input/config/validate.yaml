@@ -1,7 +1,7 @@
 fasta        : "/home/llenezet/working_directory/phaseimpute_article/input/data/genome/GRCh38_full_analysis_set_plus_decoy_hla.fa"
 fasta_fai    : "/home/llenezet/working_directory/phaseimpute_article/input/data/genome/GRCh38_full_analysis_set_plus_decoy_hla.fa.fai"
 input        : "/home/llenezet/working_directory/phaseimpute_article/output/results_impute/imputation/csv/impute.csv"
-input_truth  : "/home/llenezet/working_directory/phaseimpute_article/input/data/csv/new/sample_sim_truth_depth.csv"
+input_truth  : "/home/llenezet/working_directory/phaseimpute_article/input/csv/new/sample_sim_truth_depth.csv"
 posfile      : "/home/llenezet/working_directory/phaseimpute_article/output/results_panelprep/prep_panel/csv/posfile.csv"
 steps        : "validate"
 min_val_gl   : null

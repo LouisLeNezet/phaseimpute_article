@@ -18,7 +18,7 @@ OUTDIR_PATH="$PWD/output"
 conda activate env_benchmark
 
 if [ 1 -eq 1 ]; then
-    echo  "Running for panelpreparation benchmarking"
+    echo  "Running for panel preparation benchmarking"
     mkdir -p $OUTDIR_PATH/results_panelprep
     nextflow -log $OUTDIR_PATH/results_panelprep/phaseimpute.log run $MAIN_NF \
         -profile singularity \
@@ -26,7 +26,7 @@ if [ 1 -eq 1 ]; then
         --outdir $OUTDIR_PATH/results_panelprep \
         -resume \
         -params-file $INPUT_CONFIG/panelprep.yaml \
-        -c $INPUT_CONFIG/benchmarking.config
+        -c $INPUT_CONFIG/benchmarking.config | tee pipeline_run.log
 fi
 
 if [ 1 -eq 1 ]; then
@@ -68,17 +68,17 @@ fi
 if [ 1 -eq 1 ]; then
     # Prepare data for validation
     conda activate env_tools
-    input_truth_depth_csv=csv/new/sample_sim_truth_depth.csv
-    input_truth_csv=csv/new/sample_sim_full_truth.csv
+    input_truth_depth_csv=input/csv/new/sample_sim_truth_depth.csv
+    input_truth_csv=input/csv/new/sample_sim_full_truth.csv
     echo "sample,file,index" > $input_truth_depth_csv
-    mkdir -p $OUTPUT_DATA/truth
+    mkdir -p $INPUT_DATA/truth
     while IFS=',' read -r sample file index; do
         if [ "$sample" == "sample" ]; then
             continue
         fi
         for depth in 0.1 0.2 0.5 1 2 4 8; do
             depth_char=$(echo $depth | sed 's/\.//')
-            new_file=$OUTPUT_DATA/truth/$sample"_"$depth_char"X"
+            new_file=$INPUT_DATA/truth/$sample"_"$depth_char"X"
             # Change sample name in the vcf file
             bcftools reheader -s <(echo $sample"_"$depth_char"X") \
                 $file -o $new_file".vcf.gz"
@@ -88,7 +88,7 @@ if [ 1 -eq 1 ]; then
     done < <(cat "$input_truth_csv")
 fi
 
-conda activate env_nf
+conda activate env_benchmark
 
 if [ 1 -eq 1 ]; then
     echo  "Running for validation benchmarking"
@@ -99,6 +99,6 @@ if [ 1 -eq 1 ]; then
         -ansi-log false \
         -resume \
         --outdir $OUTDIR_PATH/results_validate \
-        -params-file /projects/dog/llenezet/script/benchmark/validate.yaml \
-        -c /projects/dog/llenezet/script/benchmark/benchmarking.config
+        -params-file $INPUT_CONFIG/validate.yaml \
+        -c $INPUT_CONFIG/benchmarking.config  | tee pipeline_run.log
 fi

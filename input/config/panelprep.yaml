@@ -1,6 +1,7 @@
 fasta          : "/home/llenezet/working_directory/phaseimpute_article/input/data/genome/GRCh38_full_analysis_set_plus_decoy_hla.fa"
 fasta_fai      : "/home/llenezet/working_directory/phaseimpute_article/input/data/genome/GRCh38_full_analysis_set_plus_decoy_hla.fa.fai"
 panel          : "/home/llenezet/working_directory/phaseimpute_article/input/csv/new/panel_full.csv"
+input_region   : "/home/llenezet/working_directory/phaseimpute_article/input/csv/new/region_autosomes.csv"
 steps          : "panelprep"
 normalize      : true
 compute_freq   : false

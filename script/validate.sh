@@ -1,14 +1,17 @@
 #!/bin/sh
+OUTPUT_DATA="$PWD/input/data"
+mkdir -p $OUTPUT_DATA/gnomad
+wget https://storage.googleapis.com/gcp-public-data--gnomad/release/3.1.1/vcf/genomes/gnomad.genomes.v3.1.1.sites.chr22.vcf.bgz \
+    -P $OUTPUT_DATA/gnomad/
+wget https://storage.googleapis.com/gcp-public-data--gnomad/release/3.1.1/vcf/genomes/gnomad.genomes.v3.1.1.sites.chr22.vcf.bgz.tbi \
+    -P $OUTPUT_DATA/gnomad/
 
-# wget https://storage.googleapis.com/gcp-public-data--gnomad/release/3.1.1/vcf/genomes/gnomad.genomes.v3.1.1.sites.chr22.vcf.bgz
-# wget https://storage.googleapis.com/gcp-public-data--gnomad/release/3.1.1/vcf/genomes/gnomad.genomes.v3.1.1.sites.chr22.vcf.bgz.tbi
+bcftools annotate -x INFO gnomad.genomes.v3.1.1.sites.chr22.vcf.bgz -Oz -o stripped.vcf.gz -W
 
-#bcftools annotate -x INFO gnomad.genomes.v3.1.1.sites.chr22.vcf.bgz -Oz -o stripped.vcf.gz -W
-
-#bcftools annotate \
-#  -a gnomad.genomes.v3.1.1.sites.chr22.vcf.bgz \
-#  -c INFO/AC,INFO/AN,INFO/AF \
-#  stripped.vcf.gz -Oz -o gnomad.genomes.v3.1.1.sites_stripped.chr22.vcf.gz -W
+bcftools annotate \
+  -a gnomad.genomes.v3.1.1.sites.chr22.vcf.bgz \
+  -c INFO/AC,INFO/AN,INFO/AF \
+  stripped.vcf.gz -Oz -o gnomad.genomes.v3.1.1.sites_stripped.chr22.vcf.gz -W
 
 #/projects/dog/llenezet/script/benchmark/results_impute/imputation/glimpse2/samples/HG001_1X.glimpse2.vcf.gz
 #/projects/dog/llenezet/data/HG001/truth/HG001_GRCh38_1_22_v4.2.1_benchmark.vcf.gz

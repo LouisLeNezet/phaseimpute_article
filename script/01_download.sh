@@ -56,3 +56,7 @@ process_csv "$OUTPUT_DATA/HG001/raw" "input/csv/to_download/sample_sim_full.csv"
 # Download the reference genome and unzip it
 wget ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/GRCh38_reference_genome/GRCh38_full_analysis_set_plus_decoy_hla.fa -P $OUTPUT_DATA/genome/
 wget ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/GRCh38_reference_genome/GRCh38_full_analysis_set_plus_decoy_hla.fa.fai -P $OUTPUT_DATA/genome/
+
+# Create region file
+echo "chr,start,end" > input/csv/new/region_autosomes.csv
+head -n 22 $OUTPUT_DATA/genome/GRCh38_full_analysis_set_plus_decoy_hla.fa.fai | awk -v OFS="," '{print $1,"0",$2}' >> input/csv/new/region_autosomes.csv

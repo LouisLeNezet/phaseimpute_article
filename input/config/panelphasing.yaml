@@ -1,5 +1,5 @@
 fasta        : "/home/llenezet/working_directory/phaseimpute_article/input/data/genome/GRCh38_full_analysis_set_plus_decoy_hla.fa"
-panel        : "/home/llenezet/working_directory/phaseimpute_article/input/data/csv/new/panel_unphased.csv"
+panel        : "/home/llenezet/working_directory/phaseimpute_article/input/csv/new/panel_unphased_filtered.csv"
 steps        : "panelprep"
 normalize    : false
 compute_freq : false
